@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Smart Cage</span>
+  <button mat-icon-button (click)="signOut()" id="sign-out-button">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container autosize="true">
+  <mat-drawer #drawer mode="side">
+    <button mat-stroked-button routerLink="light" (click)="closeDrawer()">Light</button>
+    <button mat-stroked-button routerLink="audio" (click)="closeDrawer()">Audio</button>
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

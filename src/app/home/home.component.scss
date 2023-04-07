@@ -1,0 +1,20 @@
+mat-drawer-container {
+  min-height: calc(100vh - 64px); // fill the available height excluding the toolbar
+
+  mat-drawer {
+    min-width: 30vw;
+
+    button {
+      display: block;
+      margin-top: 1em;
+      width: 90%;
+      margin-right: auto;
+      margin-left: auto
+    }
+  }
+}
+
+#sign-out-button {
+  margin-left: auto;
+  margin-right: 0;
+}

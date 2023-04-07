@@ -1,0 +1,20 @@
+mat-card {
+  margin: 2em;
+
+  #mode,
+  #volume {
+    margin-top: 2em;
+  }
+
+  #volume {
+    display: flex;
+    align-items: center;
+
+    mat-slider {
+      flex: 1;
+      max-width: 60em;
+      margin-right: auto;
+      margin-left: 1em;
+    }
+  }
+}

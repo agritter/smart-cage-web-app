@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <span>Smart Cage</span>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Sign In
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div *ngIf="!phoneNumberEntered">
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="1234567890" type="text" [(ngModel)]="phoneNumber" />
+      </mat-form-field>
+      <button #signIn mat-raised-button color="primary" (click)="signInWithPhoneNumber()" *ngIf="!phoneNumberEntered">
+        Send Verification Code
+      </button>
+    </div>
+
+    <div *ngIf="phoneNumberEntered">
+      <mat-form-field appearance="outline">
+        <mat-label>Verification Code</mat-label>
+        <input matInput type="text" [(ngModel)]="verificationCode" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="checkVerificationCode()">Verify</button>
+    </div>
+  </mat-card-content>
+</mat-card>

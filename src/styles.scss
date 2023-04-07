@@ -1,0 +1,71 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$SmartCage-primary: mat.define-palette((50 : #f5f8fd,
+      100 : #e5effb,
+      200 : #d4e4f8,
+      300 : #c3d9f5,
+      400 : #b6d0f2,
+      500 : #a9c8f0,
+      600 : #a2c2ee,
+      700 : #98bbec,
+      800 : #8fb4e9,
+      900 : #7ea7e5,
+      A100 : #ffffff,
+      A200 : #ffffff,
+      A400 : #ffffff,
+      A700 : #ebf3ff,
+      contrast: (50 : #252525,
+        100 : #252525,
+        200 : #252525,
+        300 : #252525,
+        400 : #252525,
+        500 : #252525,
+        600 : #252525,
+        700 : #252525,
+        800 : #252525,
+        900 : #252525,
+        A100 : #252525,
+        A200 : #252525,
+        A400 : #252525,
+        A700 : #252525,
+      )), 600, 100, 900);
+$SmartCage-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$SmartCage-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$SmartCage-theme: mat.define-light-theme((color: (primary: $SmartCage-primary,
+        accent: $SmartCage-accent,
+        warn: $SmartCage-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($SmartCage-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

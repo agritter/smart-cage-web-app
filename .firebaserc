@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "smartcage8": {
+      "hosting": {
+        "SmartCage": [
+          "smartcage"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "smartcage8"
+  }
+}

@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Audio
+    </mat-card-title>
+    <mat-card-subtitle *ngIf="haveRetrieved">
+      Status: {{audio.isOn ? "playing": "not playing"}}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-form-field id="mode" appearance="outline">
+      <mat-label>Mode</mat-label>
+      <mat-select (selectionChange)="onModeSelected($event.value)" [(value)]="audio.mode">
+        <mat-option *ngFor="let mode of audioModes" value="{{mode}}">{{mode}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div id="volume">
+      <label>Volume</label>
+      <mat-slider discrete>
+        <input matSliderThumb (valueChange)="onVolumeChange()" [(ngModel)]="audio.volume">
+      </mat-slider>
+    </div>
+  </mat-card-content>
+</mat-card>
