@@ -12,7 +12,7 @@
     <mat-form-field id="mode" appearance="outline">
       <mat-label>Mode</mat-label>
       <mat-select (selectionChange)="onModeSelected($event.value)" [(value)]="audio.mode">
-        <mat-option *ngFor="let mode of audioModes" value="{{mode}}">{{mode}}</mat-option>
+        <mat-option *ngFor="let mode of audioModes" value="{{mode.value}}">{{mode.label}}</mat-option>
       </mat-select>
     </mat-form-field>
 

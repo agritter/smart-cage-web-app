@@ -22,6 +22,9 @@ const routes: Routes = [
   { path: '**', redirectTo: "light" },
 ];
 
+/**
+ * Handles the routing to certain app pages
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
