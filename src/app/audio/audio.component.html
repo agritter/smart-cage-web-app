@@ -16,6 +16,22 @@
       </mat-select>
     </mat-form-field>
 
+    <div id="timeout" *ngIf="isTimeoutMode()">
+      <label>Timeout</label>
+      <mat-slider discrete [max]="60" [displayWith]="timeoutFormat">
+        <input matSliderThumb (valueChange)="onTimeoutChange()" [(ngModel)]="audio.timeout">
+      </mat-slider>
+    </div>
+
+    <div>
+      <mat-form-field id="type" appearance="outline">
+        <mat-label>Type</mat-label>
+        <mat-select (selectionChange)="onTypeSelected($event.value)" [(value)]="audio.type">
+          <mat-option *ngFor="let type of audioTypes" value="{{type.value}}">{{type.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
     <div id="volume">
       <label>Volume</label>
       <mat-slider discrete>

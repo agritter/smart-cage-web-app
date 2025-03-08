@@ -1,7 +1,7 @@
 {
   "hosting": {
     "target": "SmartCage",
-    "public": "dist/smart-cage",
+    "public": "dist/smart-cage/browser",
     "ignore": [
       "**/.*"
     ],

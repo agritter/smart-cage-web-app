@@ -7,9 +7,10 @@ import { MatSidenav } from '@angular/material/sidenav';
  * Includes a header and drawer to navigate between pages
  */
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    standalone: false
 })
 export class HomeComponent {
   /** A handle on the side navigation drawer */

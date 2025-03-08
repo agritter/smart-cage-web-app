@@ -11,6 +11,10 @@ export type Audio = {
   mode: AudioMode;
   /** The volume at which to play the audio */
   volume: number;
+  /** The timeout for switchTimeout mode */
+  timeout: number;
+  /** The source for the audio (ex. radio, local files) */
+  type: AudioType;
 };
 
 /**
@@ -25,6 +29,8 @@ export enum AudioMode {
   switchToggle = "switchToggle",
   /** Audio is only on when the switch is pressed */
   switchValue = "switchValue",
+  /** Play for an amount of time after the switch is pressed */
+  switchTimeout = "switchTimeout",
 }
 
 /**
@@ -37,9 +43,45 @@ export function descriptionFromAudioMode(mode: AudioMode) {
     case AudioMode.switchToggle:
       return "toggle when perch pressed";
     case AudioMode.switchValue:
-      return "play when on perch"
+      return "play when on perch";
+    case AudioMode.switchTimeout:
+      return "plays for a while when perch pressed";
     default:
       return mode;
+  }
+}
+
+/**
+ * The possible audio types that can be played.
+ */
+export enum AudioType {
+  /** Play local files of budgies talking */
+  budgies = "budgies",
+  /** Play an 80s radio station */
+  eighties = "eighties",
+  /** Play a Latin radio station */
+  latin = "latin",
+  /** Play a jazz radio station */
+  jazz = "jazz",
+}
+
+/**
+ * Translates audio types into a more human-readable description.
+ * @param type
+ * @returns A description of the type
+ */
+export function descriptionFromAudioType(type: AudioType) {
+  switch (type) {
+    case AudioType.budgies:
+      return "Disco and R2D2";
+    case AudioType.eighties:
+      return "80s Radio"
+    case AudioType.latin:
+      return "Latin Radio"
+    case AudioType.jazz:
+      return "Jazz Radio"
+    default:
+      return type;
   }
 }
 

@@ -10,22 +10,21 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div *ngIf="!phoneNumberEntered">
+    <div>
       <mat-form-field appearance="outline">
-        <mat-label>Phone Number</mat-label>
-        <input matInput placeholder="1234567890" type="text" [(ngModel)]="phoneNumber" />
+        <mat-label>Username</mat-label>
+        <input matInput type="text" [(ngModel)]="username" />
       </mat-form-field>
-      <button #signIn mat-raised-button color="primary" (click)="signInWithPhoneNumber()" *ngIf="!phoneNumberEntered">
-        Send Verification Code
-      </button>
     </div>
-
-    <div *ngIf="phoneNumberEntered">
+    <div>
       <mat-form-field appearance="outline">
-        <mat-label>Verification Code</mat-label>
-        <input matInput type="text" [(ngModel)]="verificationCode" />
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password" />
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="checkVerificationCode()">Verify</button>
     </div>
+    <button #signInButton mat-raised-button color="primary" [disabled]="username==='' || password===''"
+      (click)="signIn()">
+      Login
+    </button>
   </mat-card-content>
 </mat-card>

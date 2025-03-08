@@ -34,11 +34,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   imports: [
     AppRoutingModule,
-    provideAuth(() => getAuth()),
     BrowserAnimationsModule,
     BrowserModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
     FormsModule,
     MatButtonModule,
     MatCardModule,
@@ -57,7 +54,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [
+    provideAuth(() => getAuth()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

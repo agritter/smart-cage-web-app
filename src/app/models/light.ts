@@ -9,6 +9,8 @@ export type Light = {
   isOn: boolean;
   /** The logical mode to use when deciding whether the light should be on */
   mode: LightMode
+  /** The timeout for switchTimeout mode */
+  timeout: number;
 };
 
 /**
@@ -23,6 +25,8 @@ export enum LightMode {
   switchToggle = "switchToggle",
   /** Light is only on when the switch is pressed */
   switchValue = "switchValue",
+  /** On for an amount of time after the switch is pressed */
+  switchTimeout = "switchTimeout",
 }
 
 /**
@@ -36,6 +40,8 @@ export function descriptionFromLightMode(mode: LightMode) {
       return "toggle when perch pressed";
     case LightMode.switchValue:
       return "on when on perch"
+    case LightMode.switchTimeout:
+      return "on for a while when perch pressed";
     default:
       return mode;
   }

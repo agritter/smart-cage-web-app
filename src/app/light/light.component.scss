@@ -1,7 +1,20 @@
 mat-card {
   margin: 2em;
 
-  #mode {
+  #mode,
+  #timeout {
     margin-top: 2em;
+  }
+}
+
+#timeout {
+  display: flex;
+  align-items: center;
+
+  mat-slider {
+    flex: 1;
+    max-width: 60em;
+    margin-right: auto;
+    margin-left: 1em;
   }
 }

@@ -2,11 +2,13 @@ mat-card {
   margin: 2em;
 
   #mode,
-  #volume {
+  #volume,
+  #type {
     margin-top: 2em;
   }
 
-  #volume {
+  #volume,
+  #timeout {
     display: flex;
     align-items: center;
 

@@ -15,5 +15,13 @@
         <mat-option *ngFor="let mode of lightModes" value="{{mode.value}}">{{mode.label}}</mat-option>
       </mat-select>
     </mat-form-field>
+
+    <div id="timeout" *ngIf="isTimeoutMode()">
+      <label>Timeout</label>
+      <mat-slider discrete [max]="60" [displayWith]="timeoutFormat">
+        <input matSliderThumb (valueChange)="onTimeoutChange()" [(ngModel)]="light.timeout">
+      </mat-slider>
+    </div>
+
   </mat-card-content>
 </mat-card>
